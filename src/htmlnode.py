@@ -10,6 +10,8 @@ class HTMLNode():
         raise NotImplementedError("not implemented!")
     
     def props_to_html(self):
+        if self.props and not isinstance(self.props, dict):
+            raise TypeError("props must be a dictionary")
         props_html_string = ""
         if self.props:
             for prop in self.props:
